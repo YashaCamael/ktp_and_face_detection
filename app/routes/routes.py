@@ -4,7 +4,7 @@ from app.utils.utils import decode_base64_image, download_image_from_link
 import os
 
 def configure_routes(app):
-    @app.route('/process-image', methods=['POST'])
+    @app.route('/api/v1/AI/crop-ktp', methods=['POST'])
     def process_image_route():
         data = request.get_json()  # Parse JSON payload
 
@@ -49,6 +49,6 @@ def configure_routes(app):
             # Clean up temporary file
             os.remove(image_file)
 
-    @app.route('/', methods=['GET'])
+    @app.route('/api/v1/AI/health', methods=['GET'])
     def health_check():
         return jsonify({"status": "ok", "message": "Service is up and running"}), 200
