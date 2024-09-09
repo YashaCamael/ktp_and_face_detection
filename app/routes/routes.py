@@ -48,3 +48,7 @@ def configure_routes(app):
         finally:
             # Clean up temporary file
             os.remove(image_file)
+
+    @app.route('/', methods=['GET'])
+    def health_check():
+        return jsonify({"status": "ok", "message": "Service is up and running"}), 200
