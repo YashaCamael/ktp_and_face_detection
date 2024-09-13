@@ -88,3 +88,6 @@ poetry.lock
 
 # test folder
 test/
+
+bus.jpg
+yolov8n.pt 
