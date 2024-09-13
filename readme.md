@@ -4,7 +4,7 @@ This API allows you to detect and process images of KTP (Indonesian ID cards) an
 
 ## API Endpoint
 
-**POST** `/process-image`
+**POST** `/api/v1/AI/crop-ktp`
 
 This endpoint processes the image and returns the cropped image, along with the bounding box coordinates and confidence scores for KTP and face detections.
 
@@ -25,7 +25,7 @@ The API accepts a JSON payload with one of the following fields:
 If you have the image file located on the server, you can send the file path:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/process-image \
+curl -X POST http://127.0.0.1:5000/api/v1/AI/crop-ktp \
 -H "Content-Type: application/json" \
 -d '{"image_path": "path/to/your/image.png"}'
 ```
@@ -41,7 +41,7 @@ base64 path/to/your/image.png > encoded_image.txt
 Then, use the Base64 string in your request:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/process-image \
+curl -X POST http://127.0.0.1:5000/api/v1/AI/crop-ktp \
 -H "Content-Type: application/json" \
 -d '{"image_base64": "your_base64_encoded_string_here"}'
 ```
@@ -53,7 +53,7 @@ Replace `"your_base64_encoded_string_here"` with the actual Base64 string from t
 If the image is hosted online, you can provide a direct link to the image:
 
 ```bash
-curl -X POST http://127.0.0.1:5000/process-image \
+curl -X POST http://127.0.0.1:5000/api/v1/AI/crop-ktp \
 -H "Content-Type: application/json" \
 -d '{"image_link": "https://example.com/path/to/image.png"}'
 ```
